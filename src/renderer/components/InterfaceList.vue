@@ -1,47 +1,41 @@
 <script>
-  import spoof from 'spoof'
+  import { mapState } from 'vuex'
   import matchSorter from 'match-sorter'
-
-  const GET_INTERFACES_INTERVAL_TIMER = 5000
 
   export default {
     name: 'interface-list',
 
     data () {
       return {
-        search: '',
-        interfaces: spoof.findInterfaces()
+        search: ''
       }
     },
 
     created () {
-      const [target] = this.interfaces
-      this.goTo(target.port)
-
-      // Note: We need to continually check if there are new interfaces, a usual
-      //       scenario is a user connecting a new device. This simulates a
-      //       real time listener.
-      setInterval(() => {
-        this.interfaces = spoof.findInterfaces()
-      }, GET_INTERFACES_INTERVAL_TIMER)
+      setTimeout(() => {
+        const [interf] = this.interfaces
+        this.$router.push({
+          name: 'interface-detail',
+          params: {
+            device: interf.device
+          }
+        })
+      }, 0)
     },
 
     computed: {
+      ...mapState({ interfaces: state => state.interfaces.all }),
+
       filteredInterfaces () {
-        return matchSorter(this.interfaces, this.search, {
-          keys: ['port', 'address']
-        })
+        const keys = ['port', 'address']
+        return matchSorter(this.interfaces, this.search, { keys })
       }
     },
 
     methods: {
-      goTo (target) {
-        this.$router.push({
-          name: 'interface-detail',
-          params: {
-            target
-          }
-        })
+      selectInterface (device) {
+        const params = { device }
+        this.$router.push({ name: 'interface-detail', params })
       }
     }
   }
@@ -50,7 +44,7 @@
 <template>
   <div class="window-content">
     <div class="pane-group">
-      <div class="pane pane-sm sidebar">
+      <div class="pane pane-sm sidebar interfaces-list">
         <ul class="list-group">
           <li class="list-group-header">
             <input class="form-control" type="text" placeholder="Search" v-model="search">
@@ -59,12 +53,12 @@
             class="list-group-item"
             v-for="(i, index) in filteredInterfaces"
             :key="index"
-            @click="goTo(i.port)"
-            :class="{ active : $route.params.target === i.port }"
+            @click="selectInterface(i.device)"
+            :class="{ active : $route.params.device === i.device }"
           >
             <div class="media-body">
               <strong>{{ i.port }}</strong>
-              <p>{{ i.address }}</p>
+              <p><code>{{ i.address }}</code></p>
             </div>
           </li>
         </ul>

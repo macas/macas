@@ -4,20 +4,31 @@ const path = require('path')
 const { menubar } = require('menubar')
 const { ipcMain } = require('electron')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
  */
-if (process.env.NODE_ENV !== 'development') {
+if (!isDev) {
   global.__static = path.join(__dirname, '/static').replace(/\\/g, '\\\\')
 }
 
 const mb = menubar({
+  // Note: Create BrowserWindow instance before it is used increasing resource
+  //       usage, but making the click on the menubar load faster.
+  preloadWindow: true,
+
   browserWindow: {
-    transparent: true
+    transparent: true,
+    resizable: isDev,
+    movable: isDev,
+    width: 346,
+    height: 272
   },
+
   // Note: Icon downloaded from https://icons8.com/icon/1935/display
-  icon: path.join(process.cwd(), '/static/favicon/icon.png'),
+  icon: path.join(isDev ? process.cwd() : __dirname, '/static/favicon/icon.png'),
   index: process.env.NODE_ENV === 'development'
     ? `http://localhost:9080`
     : `file://${__dirname}/index.html`

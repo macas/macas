@@ -12,7 +12,7 @@ export default new Router({
       component: require('@/components/InterfaceList').default,
       children: [
         {
-          path: ':target',
+          path: ':device',
           name: 'interface-detail',
           component: require('@/components/InterfaceDetail').default
         }

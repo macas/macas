@@ -10,14 +10,14 @@ Electron app to easily spoof your MAC address.
 MAC spoofing is a technique for changing a factory-assigned Media Access Control (MAC) address of a network interface on a networked device.
 The changing of the assigned MAC address may allow the bypassing of access control lists on servers or routers, either hiding a computer on a network or allowing it to impersonate another network device. [Read More](https://en.wikipedia.org/wiki/MAC_spoofing).
 
-### Download
+## Download
 
-* [MacOS](https://github.com/ndelvalle/macas/releases)
-* Linux and Windows: Current build has MacOS support only, should be pretty easy to create a linux and windows build but I need to test those environment first, check how the UI looks, create their icons etc.
+  * [MacOS](https://github.com/ndelvalle/macas/releases)
+  * Linux and Windows: Current build has MacOS support only, should be pretty easy to create a linux and windows build but I need to test those environment first, check how the UI looks, create their icons etc.
 
-### Development
+## Development
 
-#### Build Setup
+### Build Setup
 
 ``` bash
 # install dependencies
@@ -34,15 +34,16 @@ npm run lint
 
 ```
 
-### Acknowledgments
+## Acknowledgments
 
 Core packages used to build this library are:
-* [spoof](https://github.com/feross/spoof)
-* [electron-vue](https://github.com/SimulatedGREG/electron-vue)
+  * [spoof](https://github.com/feross/spoof)
+  * [electron-vue](https://github.com/SimulatedGREG/electron-vue)
 
-### TODOs
+## TODOs
 
-- [ ] Create Linux build
-- [ ] Create Windows build
-- [ ] Allow to specify a MAC address, not just using a randomized one
-- [ ] Reset all button to set all interfaces to their default MAC address
+* [ ] Automatic updates
+* [ ] Create Linux build
+* [ ] Create Windows build
+* [ ] Allow to specify a MAC address, not just using a randomized one
+* [ ] Reset all button to set all interfaces to their default MAC address

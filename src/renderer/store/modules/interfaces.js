@@ -9,7 +9,8 @@ const state = {
 
 const getters = {
   selected: state => state.all.find(i => i.device === state.selected) || {},
-  isUpdating: state => device => state.updating.indexOf(device) >= 0
+  isUpdating: state => device => state.updating.indexOf(device) >= 0,
+  spoofed: state => state.all.filter(i => spoof.isSpoofed(i))
 }
 
 const mutations = {

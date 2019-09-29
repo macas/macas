@@ -1,12 +1,11 @@
 import sudo from 'sudo-prompt'
+import { name } from '../../../package'
 
-const options = {
-  name: 'macas spoof'
-}
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 function exec (cmd) {
   return new Promise(function (resolve, reject) {
-    sudo.exec(cmd, options, function (err, stdout, stderr) {
+    sudo.exec(cmd, { name: capitalize(name) }, function (err, stdout, stderr) {
       if (err || stderr) {
         return reject(err || stderr)
       }

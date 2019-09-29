@@ -27,7 +27,8 @@ const mb = menubar({
     height: 272
   },
 
-  // Note: Icon downloaded from https://icons8.com/icon/1935/display
+  // Note: App icon downloaded from https://icons8.com/icon/1935/display
+  // Note: App trail icon downloaded from https://icons8.com/icon/1935/display
   icon: path.join(isDev ? process.cwd() : __dirname, '/static/favicon/icon.png'),
   index: process.env.NODE_ENV === 'development'
     ? `http://localhost:9080`

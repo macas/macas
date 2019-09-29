@@ -1,6 +1,5 @@
 <script>
   import { ipcRenderer } from 'electron'
-  import spoof from './services/spoof'
 
   export default {
     name: 'macas',
@@ -9,11 +8,6 @@
       open (link) {
         this.$electron.shell.openExternal(link)
       },
-
-      resetConfig () {
-        return spoof.resetAll()
-      },
-
       quit () {
         ipcRenderer.send('quit-app')
       }
@@ -41,9 +35,6 @@
 
           <button class="btn btn-default pull-right" @click="quit">
             Quit Macas
-          </button>
-          <button class="btn btn-default pull-right" @click="resetConfig">
-            Reset configuration
           </button>
         </div>
       </footer>

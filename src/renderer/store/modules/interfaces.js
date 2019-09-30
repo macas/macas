@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import isEqual from 'lodash.isequal'
 import spoof from '../../services/spoof'
 
@@ -21,7 +22,8 @@ const mutations = {
     state.selected = payload.device
   },
   UPDATE_INTERFACE (state, payload) {
-    state.all = [...state.all.filter(i => i.device !== payload.device), payload]
+    const index = state.all.find(i => i.device === payload.device)
+    Vue.set(state.all.items, index, payload)
   },
   ADD_UPDATING (state, payload) {
     state.updating.push(payload)

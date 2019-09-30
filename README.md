@@ -10,6 +10,10 @@ Electron app to easily spoof your MAC address.
 MAC spoofing is a technique for changing a factory-assigned Media Access Control (MAC) address of a network interface on a networked device.
 The changing of the assigned MAC address may allow the bypassing of access control lists on servers or routers, either hiding a computer on a network or allowing it to impersonate another network device. [Read More](https://en.wikipedia.org/wiki/MAC_spoofing).
 
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/ndelvalle/macas/master/preview.png" alt="macas">
+</h1>
+
 ## Download
 
 - [MacOS](https://github.com/ndelvalle/macas/releases)

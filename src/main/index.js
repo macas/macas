@@ -24,7 +24,10 @@ const mb = menubar({
     resizable: IS_DEV,
     movable: IS_DEV,
     width: 346,
-    height: 272
+    height: 272,
+    webPreferences: {
+      nodeIntegration: true
+    }
   },
 
   // Note: App icon downloaded from https://icons8.com/icon/1935/display
@@ -38,6 +41,12 @@ const mb = menubar({
 mb.on('ready', () => {
   console.log('Macas app is ready!')
 })
+
+// Note: The default value of electron app.allowRendererProcessReuse is
+// deprecated, it is currently "false".  It will change to be "true" in
+// Electron 9.
+// For more information please check https://github.com/electron/electron/issues/18397
+mb.app.allowRendererProcessReuse = true
 
 ipcMain.on('quit-app', () => mb.app.quit())
 

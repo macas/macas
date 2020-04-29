@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import axios from 'axios'
 import startInterval from 'startinterval2'
 
 import App from './App'
@@ -13,7 +12,6 @@ if (!process.env.IS_WEB) {
   Vue.use(require('vue-electron'))
 }
 
-Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 // Note: We need to continually check if there are new interfaces, a usual

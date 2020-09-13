@@ -44,35 +44,28 @@
 <template>
   <div class="interface-detail">
     <h4 class="interface-title">{{ target.port }}</h4>
-
-    <table class="table-striped mac-address-table">
-      <tbody>
-        <tr>
-          <td class="mac-address-table-td"><strong>device</strong></td>
-          <td class="mac-address-table-td"><code>{{ target.device }}</code></td>
-        </tr>
-        <tr>
-          <td class="mac-address-table-td"><strong>default</strong></td>
-          <td class="mac-address-table-td"><code>{{ target.address }}</code></td>
-        </tr>
-        <tr>
-          <td class="mac-address-table-td"><strong>spoof</strong></td>
-          <td class="mac-address-table-td">
-            <code>
-              {{ isSpoofed ? target.currentAddress : '-' }}
-            </code>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="btn-group mac-address-actions">
+    <div class="device-table-custom">
+      <div class="first-row row">
+        <span class="title-custom-device">device</span>
+        <span class="content-custom-table">{{ target.device }}</span>
+      </div>
+      <div class="second-row row">
+        <span class="title-custom-device">default</span>
+        <span class="content-custom-table">{{ target.address }}</span>
+      </div>
+      <div class="third-row row">
+        <span class="title-custom-device">spoof</span>
+        <span class="content-custom-table pink-custom"> {{ isSpoofed ? target.currentAddress : 'none' }}</span>
+      </div>
+    </div>
+    <div class="mac-address-actions">
       <button
         class="btn btn-default"
         @click="randomize"
         :disabled="isUpdating"
         :class="{ disabled: isUpdating }"
       >
+        <img src="../assets/icons/refresh.svg" width="14" height="14" alt="randomize">
         Randomize
       </button>
       <button
@@ -81,12 +74,11 @@
         :disabled="!isSpoofed || isUpdating"
         :class="{ disabled: !isSpoofed || isUpdating }"
       >
+        <img v-if="!isSpoofed || isUpdating" src="../assets/icons/home-disabled.svg" width="13" height="13" alt="randomize">
+        <img v-else src="../assets/icons/home.svg" width="13" height="13" alt="randomize">
         Reset to default
       </button>
     </div>
-    <p class="macas-explain">
-      MAC spoofing is a technique for changing a factory-assigned Media Access Control (MAC) address of a network interface on a networked device.
-    </p>
   </div>
 </template>
 
@@ -97,27 +89,86 @@
   }
 
   .interface-detail {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 7px;
+    margin-top: 38px;
   }
 
   .interface-title {
     text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--white)
   }
 
-  .mac-address-table {
-    font-size: 11px;
+  .title-custom-device {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    width: 45px;
+    display: inline-block;
   }
 
-  .mac-address-table-td {
-    padding: 2px 8px;
+  .content-custom-table {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: var(--light-text)
+  }
+
+  .pink-custom {
+    color: var(--primary);
+  }
+
+  .row {
+    padding-left: 5px;
+  }
+
+  .second-row {
+    background-color: var(--grey-contrast);
+    border-radius: 3px;
   }
 
   .mac-address-actions {
-    padding-top: 12px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 58px;
+    padding: 0 3px;
   }
 
-  .macas-explain {
-    font-size: 9px;
+  .mac-address-actions button {
+    background-color: var(--white);
+    border: none;
+    height: 25px;
+    color: var(--grey);
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 33px;
+    align-items: center;
+  }
+
+  .mac-address-actions button:hover {
+    transform: scale(1.03);
+  }
+
+  .mac-address-actions button.disabled {
+    color: rgba(0, 0, 0, .22);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .mac-address-actions button img {
+   margin-right: 3px;
+  }
+
+  .pane {
+    background: var(--grey);
+    border: none !important;
   }
 </style>

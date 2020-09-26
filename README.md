@@ -1,6 +1,6 @@
 # macas
 
-[![Build Status](https://travis-ci.com/ndelvalle/macas.svg?branch=master)](https://travis-ci.com/ndelvalle/macas)
+[![Build Status](https://travis-ci.com/macas/macas.svg?branch=master)](https://travis-ci.com/macas/macas)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/46f938260d504732ad37a553f2b02f1e)](https://www.codacy.com/manual/ndelvalle/macas?utm_source=github.com&utm_medium=referral&utm_content=ndelvalle/macas&utm_campaign=Badge_Grade)
 [![dependencies Status](https://david-dm.org/ndelvalle/macas/status.svg)](https://david-dm.org/ndelvalle/macas)
 [![devDependencies Status](https://david-dm.org/ndelvalle/macas/dev-status.svg)](https://david-dm.org/ndelvalle/macas?type=dev)

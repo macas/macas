@@ -51,8 +51,8 @@ export default {
   }
 
   .pane-sm.interfaces-list {
-    min-width: 51%;
-    max-width: 51%;
+    min-width: 50%;
+    max-width: 50%;
   }
 
   .left-buttons {
@@ -85,11 +85,11 @@ export default {
   }
 
   .first-img {
-    margin-right: 8px;
+    margin-right: 10px;
   }
 
   .second-img {
-    margin-right: 6px;
+    margin-right: 10px;
   }
 
   .question-img {

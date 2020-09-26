@@ -96,8 +96,9 @@
 
   .interface-title {
     text-align: center;
-    font-weight: 800;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 35px !important;
     color: var(--white)
   }
 
@@ -151,10 +152,6 @@
     justify-content: flex-start;
     padding-left: 33px;
     align-items: center;
-  }
-
-  .mac-address-actions button:hover {
-    transform: scale(1.03);
   }
 
   .mac-address-actions button.disabled {

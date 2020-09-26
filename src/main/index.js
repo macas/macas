@@ -24,8 +24,8 @@ const mb = menubar({
     resizable: IS_DEV,
     movable: IS_DEV,
     alwaysOnTop: IS_DEV,
-    width: 375,
-    height: 300,
+    width: 385,
+    height: 310,
     webPreferences: {
       nodeIntegration: true
     }

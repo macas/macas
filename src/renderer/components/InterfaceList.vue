@@ -124,7 +124,7 @@
 
   .list-group-item {
     border: none;
-    padding: 3px 10px;
+    padding: 3px 8px;
     margin-bottom: 8px;
   }
 
@@ -139,7 +139,7 @@
   }
 
   .media-body img {
-    margin-right: 3px;
+    margin-right: 6px;
   }
 
   .media-title-custom {
